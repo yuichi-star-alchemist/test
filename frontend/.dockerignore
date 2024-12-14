@@ -5,7 +5,7 @@ __test__
 # .next
 .swc
 node_modules
-public
+# public
 src
 .md
 *.js*
@@ -13,3 +13,4 @@ src
 *.ts*
 !package.json
 !next.config.ts
+!.env
