@@ -6,7 +6,7 @@ const addItemsToCollectionList = async (
   setSelectList: Dispatch<SetStateAction<string>>,
 ) => {
   e.preventDefault()
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+  const apiBaseUrl = "http://57.180.44.232/api/"
   const formData = new FormData(e.currentTarget)// listIdを含む
   const listId = formData.get("list-id")?.toString()
   if (listId === "default") {

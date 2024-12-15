@@ -1,7 +1,7 @@
 const getCategoryList = async (
   cookie: string,
 ) => {
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+  const apiBaseUrl = "http://57.180.44.232/api/"
   const response = await fetch(
     `${ apiBaseUrl }items/create?endpoint=category`,
     {
