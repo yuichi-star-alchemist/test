@@ -1,5 +1,3 @@
-import { redirect } from "next/navigation"
-
 const loginRequest = async (
   e: React.FormEvent<HTMLFormElement>
 ) => {
@@ -10,7 +8,9 @@ const loginRequest = async (
     body: formData
   })
   if (result.status === 200) {
-    redirect("/")
+    console.log(result)
+
+    return result
   }
 }
 
