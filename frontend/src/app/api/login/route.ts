@@ -34,10 +34,12 @@ export async function POST(
   const json = await response.json()
   const token = json.access_token
 
-  return new Response(null, {
+  const cookieResponse = new Response(null, {
     status: 200,
     headers: {
       "Set-Cookie": `fantre=${ token }; ${ cookieOptions.toString() }`
     }
   })
+  console.log(cookieResponse)
+  return cookieResponse
 }
