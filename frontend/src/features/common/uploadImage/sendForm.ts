@@ -9,7 +9,9 @@ const sendForm = async (
 ) => {
   e.preventDefault()
   const formData = new FormData(e.currentTarget)
+  console.log(formData)
   const imageFile = formData.get(imageId) as File
+  console.log(imageFile)
   if (imageFile && imageFile.size > 2**20) return alert(ERROR_MESSAGES.IMAGE_SIZE_TOO_LARGE)
   await uploadImageAndForm(formData, imageId, itemId, endpoint)
 }

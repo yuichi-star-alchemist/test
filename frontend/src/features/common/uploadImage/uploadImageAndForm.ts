@@ -11,6 +11,7 @@ const uploadImageAndForm = async (
   endpoint: string,
 ) => {
   const cookie = (await cookies()).get("fantre")
+  console.log(cookie)
   if (!cookie) return
   const header = new Headers({"Cookie": cookie.value})
 
@@ -49,6 +50,7 @@ const uploadImageAndForm = async (
   if (imageFile.size >= 2**20) return
   const newFormData = new FormData()
   newFormData.set(imageId, imageFile)
+  console.log(newFormData)
   const requestUrl = `${ apiBaseUrl }uploadImage?${ searchParams }`
   await fetch(
     requestUrl,
