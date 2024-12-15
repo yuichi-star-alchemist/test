@@ -5,7 +5,7 @@ const loginRequest = async (
 ) => {
   e.preventDefault()
   const formData = new FormData(e.target as HTMLFormElement)
-  const result = await fetch("http://57.180.44.232:3000/api/login", {
+  const result = await fetch(`${ process.env.NEXT_PUBLIC_API_BASE_URL }login`, {
     method: "POST",
     body: formData
   })
