@@ -1,3 +1,4 @@
+import { COOKIE_OPTIONS as cookieOptions } from "@/constants"
 import { NextRequest } from "next/server"
 
 const backendUrl = process.env.BACKEND_AUTH_URL
@@ -30,6 +31,13 @@ export async function POST(
       body: searchParams.toString(),
     }
   )
+  const json = await response.json()
+  const token = json.access_token
 
-  return response
+  return new Response(null, {
+    status: 200,
+    headers: {
+      "Set-Cookie": `fantre=${ token }; ${ cookieOptions.toString() }`
+    }
+  })
 }

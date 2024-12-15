@@ -1,15 +1,14 @@
+"use client"
+
 import InputButton from "@/components/InputButton"
 import LinkButton from "@/components/LinkButton"
 import MonitorLayout from "@/components/MonitorLayout"
 import SubmitButton from "@/components/SubmitButton"
 import {
-  COOKIE_OPTIONS as cookieOptions,
   // VALIDATION_EMAIL as emailPattern,
-  VALIDATION_PASSWORD as passwordPattern,
+  VALIDATION_PASSWORD as passwordPattern
 } from "@/constants"
-import authAction from "@/utils/authAction"
-import { cookies } from "next/headers"
-import { redirect } from "next/navigation"
+import loginRequest from "./loginRequest"
 
 const LoginPage = () => {
   const requires = ["email", "password"]
@@ -19,18 +18,7 @@ const LoginPage = () => {
       viewContent={
         <form
           className="h-full flex flex-col justify-around"
-          action={
-            async formData => {
-              "use server"
-              const result = await authAction(formData, "login", requires)
-              if (result) {// cookieにtokenを保存する
-                const token = result.access_token || ""
-                const cookieStore = await cookies()
-                cookieStore.set("fantre", token, cookieOptions)
-                redirect("/")
-              }
-            }
-          }
+          onSubmit={ (e) => loginRequest(e) }
         >
           <InputButton
             type="email"
