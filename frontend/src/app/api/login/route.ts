@@ -31,13 +31,17 @@ export async function POST(
       body: searchParams.toString(),
     }
   )
+  if (!response.ok) return response
   const json = await response.json()
   const token = json.access_token
 
+  const cookieOptionsArray = Object.entries(cookieOptions)
+  const cookieOptionsString = cookieOptionsArray.map(([key, value]) => `${ key }=${ value }`).join("; ")
   const cookieResponse = new Response(null, {
     status: 200,
     headers: {
-      "Set-Cookie": `fantre=${ token }; ${ cookieOptions.toString() }`
+      "Set-Cookie": `fantre=${ token }; ${ cookieOptionsString }`,
+      "redirect": "/",
     }
   })
   console.log(cookieResponse)

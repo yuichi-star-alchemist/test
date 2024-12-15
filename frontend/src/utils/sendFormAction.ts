@@ -30,6 +30,7 @@ const sendFormAction = async (
 
   const cookieStore = cookies()
   const cookie = (await cookieStore).get("fantre")
+  console.log("cookie-sendFormAction", cookie)
   if (!cookie) return
 
   const header = new Headers({"Cookie": cookie.value})
