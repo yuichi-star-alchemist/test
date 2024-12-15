@@ -1,3 +1,5 @@
+"use client"
+
 import InputButton from "@/components/InputButton"
 import LinkButton from "@/components/LinkButton"
 import MonitorLayout from "@/components/MonitorLayout"
@@ -7,26 +9,17 @@ import {
   // VALIDATION_EMAIL as emailPattern,
   VALIDATION_PASSWORD as passwordPattern,
 } from "@/constants"
-import authAction from "@/utils/authAction"
-import { redirect } from "next/navigation"
+import signupRequest from "./signupRequest"
 
 const SignupPage = () => {
-  const requires = [keys.email, keys.name, keys.pass1, keys.pass2]
+  // const requires = [keys.email, keys.name, keys.pass1, keys.pass2]
   return (
     <MonitorLayout
       headerContent
       viewContent={
         <form
           className="h-full flex flex-col justify-around"
-          action={
-            async formData => {
-              "use server"
-              const result = await authAction(formData, "signup", requires)
-              if (result) {
-                redirect("/login")
-              }
-            }
-          }
+          onSubmit={ (e) => signupRequest(e) }
         >
           <InputButton
             type="email"
