@@ -15,6 +15,7 @@ export async function POST(
   request: NextRequest,
 ) {
   const cookie = request.headers.get("cookie")
+  console.log(cookie)
   if (!cookie) return Response.error()
   const token = `${ pre }${ cookie }`
   const itemId = request.nextUrl.searchParams.get("itemId")
@@ -37,11 +38,13 @@ export async function POST(
   const apiEndpoint = recipientInformation[endpoint].endpoint
   const formData = await request.formData()
   const imageFile = formData.get(formKey) as File
+  console.log(imageFile)
   if (!imageFile.size ||
     !allowedImages.includes(imageFile.type) ||
     imageFile.size >= 2**20
   ) return Response.error()
   const requestUrl = `${ backendUrl }${ apiEndpoint }`
+  console.log(requestUrl)
   const response = await fetch(
     requestUrl,
     {
