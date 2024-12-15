@@ -37,7 +37,7 @@ services:
     # volumes:
     #   - ./frontend:/app
     environment:
-      - NEXT_PUBLIC_API_URL=http://57.180.44.232/api
+      - NEXT_PUBLIC_API_URL=http://57.180.44.232:3000/api
     depends_on:
       - backend
 
