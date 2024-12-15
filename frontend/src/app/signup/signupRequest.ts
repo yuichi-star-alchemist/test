@@ -5,7 +5,7 @@ const signupRequest = async (
 ) => {
   e.preventDefault()
   const formData = new FormData(e.target as HTMLFormElement)
-  const result = await fetch("http://57.180.44.232/api/signup", {
+  const result = await fetch(`${ process.env.NEXT_PUBLIC_API_BASE_URL }signup`, {
     method: "POST",
     body: formData
   })
