@@ -37,7 +37,7 @@ export async function POST(
   const token = json.access_token
   const cookieStore = await cookies()
   cookieStore.set("fantre", token, cookieOptions)
-  return response
+  return new Response(null, {status: 200})
   // const cookieOptionsArray = Object.entries(cookieOptions)
   // const cookieOptionsString = cookieOptionsArray.map(([key, value]) => `${ key }=${ value }`).join("; ")
   // const cookieResponse = new Response(null, {

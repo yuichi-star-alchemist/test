@@ -10,9 +10,7 @@ const loginRequest = async (
     body: formData
   })
   if (result.status === 200) {
-    console.log(result)
     redirect("/")
-    return result
   }
 }
 
