@@ -79,7 +79,7 @@ const ItemsPage = ({
         const itemId = itemList[i].id
         if (itemId === "") return
         const response = await fetch(`/api/getImageUrl?endpoint=images/${ itemId }`)
-        const imageUrl = response.status !== 200 ? loading : (await response.json()).split("localhost").join("57.180.44.232")
+        const imageUrl = response.status !== 200 ? loading : (await response.json()).split("localhost").join("s3-minio")
         imageUrlList[i] = imageUrl
       }
       setCurrentImageUrlList(imageUrlList)

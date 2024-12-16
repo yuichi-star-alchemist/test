@@ -4,13 +4,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "http",
-        hostname: "57.180.44.232",
+        hostname: "s3-minio",
         port: "9000",
         pathname: "/**",
       },
     ],
   },
-  output: "standalone",
 }
 
 export default nextConfig

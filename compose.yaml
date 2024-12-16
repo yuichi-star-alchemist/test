@@ -3,7 +3,7 @@
 services:
   mongodb:
     image: mongo:5.0
-    container_name: mongodb
+    container_name: mongodbs
     ports:
       - "27017:27017"
     volumes:
@@ -13,7 +13,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: fastapi
+    container_name: fastapis
     ports:
       - "8000:8000"
     depends_on:
@@ -31,7 +31,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: nextjs
+    container_name: nextjss
     ports:
       - "3000:3000"
     # volumes:
@@ -43,7 +43,7 @@ services:
 
   nginx:
     image: nginx:latest
-    container_name: nginxf
+    container_name: nginxs
     ports:
       - "80:80"
     depends_on:
@@ -55,7 +55,7 @@ services:
 
   minio:
     image: quay.io/minio/minio:latest
-    container_name: s3-minio
+    container_name: s3-minios
     environment:
       - MINIO_ROOT_USER=${MINIO_ROOT_USER}
       - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}

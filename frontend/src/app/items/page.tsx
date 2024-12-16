@@ -43,7 +43,7 @@ const initialFetchedItemsPage = async ({
     if (initialItemList[i].id === "") break
     const endpoint = `images/${ initialItemList[i].id }`
     const initialImageUrl = await getImageUrl(endpoint) || loading
-    const minioUrl = initialImageUrl === loading ? loading : initialImageUrl.split("localhost").join("57.180.44.232")
+    const minioUrl = initialImageUrl === loading ? loading : initialImageUrl.split("localhost").join("s3-minio")
     initialImageUrlList[i] = minioUrl
   }
   

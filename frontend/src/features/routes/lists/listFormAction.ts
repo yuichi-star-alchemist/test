@@ -8,7 +8,7 @@ const listFormAction = async (formData: FormData) => {
   const cookie = (await cookieStore).get("fantre")
   if (!cookie) return
 
-  const apiBaseUrl = "http://57.180.44.232/api/"
+  const apiBaseUrl = process.env.NEXT_API_BASE_URL
   const requestUrl = `${ apiBaseUrl }lists`
   
   await fetch(

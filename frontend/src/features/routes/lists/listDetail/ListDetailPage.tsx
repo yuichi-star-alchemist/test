@@ -41,7 +41,7 @@ const ListDetailPage = ({
       for (const item of imageIdList) {
         const [itemId] = Object.entries(item)[0]
         const response = await fetch(`/api/getImageUrl?endpoint=images/${ itemId }`)
-        const imageUrl = response.status !== 200 ? loading : (await response.json()).split("localhost").join("57.180.44.232")
+        const imageUrl = response.status !== 200 ? loading : (await response.json()).split("localhost").join("s3-minio")
         imageUrlList.push(imageUrl)
       }
       setItemImageUrlList(imageUrlList)

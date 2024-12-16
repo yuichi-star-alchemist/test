@@ -2,17 +2,15 @@
 .dockerignore
 Dockerfile
 __test__
-.next
+# .next
 .swc
 node_modules
 # public
-# src
+src
 .md
-# *.js*
-# *.mjs
-# *.ts*
+*.js*
+*.mjs
+*.ts*
 !package*.json
 !next.config.ts
 !.env
-!next-env.d.ts
-!tsconfig.json

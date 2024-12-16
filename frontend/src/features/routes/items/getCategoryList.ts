@@ -1,9 +1,10 @@
+import { NEXT_PUBLIC_API_BASE_URL as nextApi } from "@/constants"
+
 const getCategoryList = async (
   cookie: string,
 ) => {
-  const apiBaseUrl = "http://57.180.44.232/api/"
   const response = await fetch(
-    `${ apiBaseUrl }items/create?endpoint=category`,
+    `${ nextApi }items/create?endpoint=category`,
     {
       headers: {
         cookie: cookie,

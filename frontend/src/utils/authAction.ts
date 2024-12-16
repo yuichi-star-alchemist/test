@@ -18,7 +18,7 @@ const authAction = async (
     if (!newFormData.get(requireKey)) return
   }
 
-  const apiBaseUrl = "http://57.180.44.232/api/"
+  const apiBaseUrl = process.env.NEXT_API_BASE_URL
   const requestUrl = `${ apiBaseUrl }${ endpoint }`
   
   const response = await fetch(

@@ -1,4 +1,4 @@
-
+export const NEXT_PUBLIC_API_BASE_URL = `${ process.env.HOSTNAME }/api/`
 // 検索
 export const SEARCH_INPUT_KEYS = [
   "series_name",

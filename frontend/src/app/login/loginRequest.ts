@@ -1,3 +1,4 @@
+import { NEXT_PUBLIC_API_BASE_URL as nextApi } from "@/constants"
 import { redirect } from "next/navigation"
 
 const loginRequest = async (
@@ -5,7 +6,7 @@ const loginRequest = async (
 ) => {
   e.preventDefault()
   const formData = new FormData(e.target as HTMLFormElement)
-  const result = await fetch(`${ process.env.NEXT_PUBLIC_API_BASE_URL }login`, {
+  const result = await fetch(`${ nextApi }login`, {
     method: "POST",
     body: formData
   })

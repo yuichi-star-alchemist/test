@@ -12,7 +12,7 @@ const InitialFetchedItemDetailPage = async ({
   const initialItemData = await getRequestItemDetail("itemDetail", searchParams)
   const endpoint = `images/${ itemId }`
   const initialImageUrl = await getImageUrl(endpoint) || ""
-  const minioUrl = initialImageUrl.split("localhost").join("57.180.44.232") || ""
+  const minioUrl = initialImageUrl.split("localhost").join("s3-minio") || ""
 
   return <ItemDetailPage
     initialItemDetail={ initialItemData ||

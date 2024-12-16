@@ -15,7 +15,7 @@ const uploadImageAndForm = async (
   if (!cookie) return
   const header = new Headers({"Cookie": cookie.value})
 
-  const apiBaseUrl = "http://57.180.44.232/api/"
+  const apiBaseUrl = process.env.NEXT_API_BASE_URL || ""
   const searchParams = new URLSearchParams([["endpoint", endpoint]])
   if (itemId !== "") searchParams.set("itemId", itemId)
 

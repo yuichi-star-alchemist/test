@@ -1,7 +1,4 @@
-import { KeyTypeIsStringObject } from "@/constants"
-
-// items
-const apiBaseUrl = "http://57.180.44.232/api/"
+import { KeyTypeIsStringObject, NEXT_PUBLIC_API_BASE_URL as nextApi } from "@/constants"
 
 export const getRequestItems = async (
   endpoint: string,
@@ -9,7 +6,7 @@ export const getRequestItems = async (
   currentPage: number,
   cookie: string = "",
 ) => {
-  const baseURL = `${ apiBaseUrl }${ endpoint }`
+  const baseURL = `${ nextApi }${ endpoint }`
   const newSearchInput = new URLSearchParams(searchInput)
   newSearchInput.set("currentPage", currentPage.toString())
   const requestUrl = `${ baseURL }?${ newSearchInput }`
@@ -24,7 +21,7 @@ export const getRequestItemsCreate = async (
   choiced?: string,
 ): Promise<KeyTypeIsStringObject | null> => {
   const onlyCharacterParameter = choiced ? `&seriesId=${ choiced }` : ""
-  const requestUrl = `${ apiBaseUrl }items/create?endpoint=${ endpoint }${ onlyCharacterParameter }`
+  const requestUrl = `${ nextApi }items/create?endpoint=${ endpoint }${ onlyCharacterParameter }`
 
   const response = await fetch(requestUrl)
 
