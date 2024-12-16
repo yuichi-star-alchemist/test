@@ -45,8 +45,9 @@ export const BACKEND_AUTH_KEYS = {
 export const COOKIE_OPTIONS = {
   // maxAge: 60*60*24,
   maxAge: 1000000,
-  // secure: true,
+  secure: process.env.NODE_ENV === "production",
   httpOnly: true,
+  path: "/",
 }
 
 export const TOKEN_PREFIX = "Bearer "

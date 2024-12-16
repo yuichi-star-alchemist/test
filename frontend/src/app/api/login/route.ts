@@ -1,4 +1,5 @@
 import { COOKIE_OPTIONS as cookieOptions } from "@/constants"
+import { cookies } from "next/headers"
 import { NextRequest } from "next/server"
 
 const backendUrl = process.env.BACKEND_AUTH_URL
@@ -34,16 +35,18 @@ export async function POST(
   if (!response.ok) return response
   const json = await response.json()
   const token = json.access_token
-
-  const cookieOptionsArray = Object.entries(cookieOptions)
-  const cookieOptionsString = cookieOptionsArray.map(([key, value]) => `${ key }=${ value }`).join("; ")
-  const cookieResponse = new Response(null, {
-    status: 200,
-    headers: {
-      "Set-Cookie": `fantre=${ token }; ${ cookieOptionsString }`,
-      "redirect": "/",
-    }
-  })
-  console.log(cookieResponse)
-  return cookieResponse
+  const cookieStore = await cookies()
+  cookieStore.set("fantre", token, cookieOptions)
+  return response
+  // const cookieOptionsArray = Object.entries(cookieOptions)
+  // const cookieOptionsString = cookieOptionsArray.map(([key, value]) => `${ key }=${ value }`).join("; ")
+  // const cookieResponse = new Response(null, {
+  //   status: 200,
+  // headers: {
+  //   "Set-Cookie": `fantre=${ token }; ${ cookieOptionsString }`,
+  //   "redirect": "/",
+  // }
+  // })
+  // console.log(cookieResponse)
+  // return cookieResponse
 }
