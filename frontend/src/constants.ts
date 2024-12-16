@@ -1,4 +1,4 @@
-export const NEXT_PUBLIC_API_BASE_URL = "http://localhost:3000/api/"
+export const NEXT_PUBLIC_API_BASE_URL = "http://57.180.44.232/api/"
 // 検索
 export const SEARCH_INPUT_KEYS = [
   "series_name",
