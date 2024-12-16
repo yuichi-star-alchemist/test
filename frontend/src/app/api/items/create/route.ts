@@ -13,6 +13,7 @@ export async function GET(
   request: NextRequest,
 ) {
   const cookie = request.headers.get("cookie")
+  console.log("cookie", cookie, request.headers)
   if (!cookie) return Response.error()
   const token = makeToken(cookie)
   // これはapi/items/createにリクエストとしてきたクエリを受け取る
