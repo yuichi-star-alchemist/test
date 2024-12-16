@@ -36,7 +36,7 @@ const sendFormAction = async (
   const header = new Headers({"Cookie": cookie.value})
   const apiBaseUrl = "http://57.180.44.232/api/"
   const requestUrl = `${ apiBaseUrl }${ endpoint }`
-  
+  console.log("requestUrl-sendFormAction", requestUrl)
   const response = await fetch(
     requestUrl,
     {

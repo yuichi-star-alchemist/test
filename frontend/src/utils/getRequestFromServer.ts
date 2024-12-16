@@ -37,6 +37,7 @@ export const getImageUrl = async (
   endpoint: string,
 ) => {
   const cookie = (await cookies()).get("fantre")
+  console.log("cookie-getImageUrl", cookie)
   if (!cookie) return Response.error()
   const apiBaseUrl = "http://57.180.44.232/api/"
   const requestUrl = `${ apiBaseUrl }/getImageUrl?endpoint=${ endpoint }`

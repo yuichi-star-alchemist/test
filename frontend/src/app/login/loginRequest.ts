@@ -11,9 +11,9 @@ const loginRequest = async (
   })
   console.log(result)
   if (result.status === 200) {
-    redirect("/")
+    console.log(result.status)
   }
-  return
+  redirect("/")  
 }
 
 export default loginRequest

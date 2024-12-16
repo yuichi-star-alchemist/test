@@ -45,10 +45,12 @@ export async function POST(
   request: NextRequest,
 ) {
   const cookie = request.headers.get("cookie")
+  console.log("cookie-api-items-create", cookie)
   if (!cookie) return Response.error()
   const token = makeToken(cookie)
 
   const formData = await request.formData()
+  console.log("formData-api-items-create", formData)
   const requestUrl = `${ backendUrl }items`
   const json = formToJson(formData)
 

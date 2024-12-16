@@ -12,12 +12,13 @@ export async function GET(
   request: NextRequest,
 ) {
   const cookie = request.cookies.get("fantre") || {value: request.headers.get("cookie")}
+  console.log("cookie-api-getImageUrl", cookie)
   if (!cookie) return Response.error()
   const token = `${ pre }${ cookie.value }`
 
   const searchParams = request.nextUrl.searchParams
   const endpoint = searchParams.get("endpoint")
-
+  console.log("endpoint-api-getImageUrl", endpoint)
   if (!endpoint) return Response.error()
 
   const requestUrl = `${ backendUrl }${ endpoint }`
