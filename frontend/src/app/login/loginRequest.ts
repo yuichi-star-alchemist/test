@@ -9,9 +9,11 @@ const loginRequest = async (
     method: "POST",
     body: formData
   })
+  console.log(result)
   if (result.status === 200) {
     redirect("/")
   }
+  return
 }
 
 export default loginRequest
