@@ -1,6 +1,6 @@
 import { cookies } from "next/headers"
 
-const apiBaseUrl = "http://57.180.44.232/api/"
+const apiBaseUrl = "http://localhost:3000/api/"
 
 // items/[itemId]
 export const getRequestItemDetail = async (
@@ -39,8 +39,8 @@ export const getImageUrl = async (
   const cookie = (await cookies()).get("fantre")
   console.log("cookie-getImageUrl", cookie)
   if (!cookie) return Response.error()
-  const apiBaseUrl = "http://57.180.44.232/api/"
   const requestUrl = `${ apiBaseUrl }/getImageUrl?endpoint=${ endpoint }`
+  console.log("requestUrl-getImageUrl", requestUrl)
   const response = await fetch(
     requestUrl,
     {
